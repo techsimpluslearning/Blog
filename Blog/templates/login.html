@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<center>
+    <h1>Login Your Account</h1>
+    {% if error %}
+    <p style="color:red;">UserName or Password is Incorrect !!</p>
+    {% endif %}
+    <form action="" method="post">
+        {% csrf_token %}
+        <input type="text" placeholder="Enter your Username" name="user">
+        <br><br>
+        <input type="password" placeholder="Password" name="pwd">
+        <br><br>
+        <input type="submit" value="Login">
+    </form>
+</center>
+</body>
+</html>

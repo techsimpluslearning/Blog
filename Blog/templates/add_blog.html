@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<center>
+    <h1>Add New Blog</h1>
+    <form action="" method="post" >
+        {% csrf_token %}
+
+        <input type="text" placeholder="Title" name="bname"><br><br>
+        <textarea placeholder="Description"  name="des"
+        style="height:100px;"></textarea><br><br>
+
+        <input type="submit" value="Add Blog">
+    </form>
+</center>
+</body>
+</html>

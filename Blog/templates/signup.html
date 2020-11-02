@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<center>
+    <h1>Create New Account</h1>
+    {% if error %}
+    <p style="color:red;">This UserName is Already Exists</p>
+    {% endif %}
+    <form action="" method="post">
+        {% csrf_token %}
+        <input type="text" placeholder="Enter First Name" name="fname">
+        <br><br>
+        <input type="text" placeholder="Enter Last Name" name="lname">
+        <br><br>
+        <input type="email" placeholder="Email" name="email">
+        <br><br>
+        <input type="text" placeholder="Username" name="uname">
+        <br><br>
+        <input type="password" placeholder="Password" name="pwd">
+        <br><br>
+        <input type="submit" value="Signup">
+
+    </form>
+</center>
+</body>
+</html>

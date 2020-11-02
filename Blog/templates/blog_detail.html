@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <h1>{{ detail.title }} - {{ detail.author.first_name }} </h1>
+    <p>{{ detail.description }}</p>
+    <p>{{ detail.likeblog_set.count }} likes <a href="{% url 'like' detail.id %}">
+        {% if status %}
+        <button>DisLike</button>
+        {% else %}
+        <button>Like</button>
+        {% endif %}
+    </a></p>
+
+<h2>Comments {{ detail.usercomment_set.count }}</h2>
+{% for i in comments %}
+    <p><b>{{ i.author.first_name }}::</b> {{ i.comment }}</p>
+
+{% endfor %}
+{% if request.user.is_authenticated %}
+    <h2>Your Comment</h2>
+    <form action="{% url 'comment' detail.id %}" method="post">
+        {% csrf_token %}
+        <label>Your Comment</label><br><br>
+       <textarea placeholder="enter your comment" name="msg" style="height:100px;width:250px;"></textarea>
+        <br><br>
+        <input type="submit" value="Comment">
+
+    </form>
+{% endif %}
+</body>
+</html>

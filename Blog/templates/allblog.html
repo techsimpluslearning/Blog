@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% if request.user.is_authenticated %}
+<h1>Welcome, <a href="{% url 'panel' %}">{{ request.user.first_name }}</a></h1>
+{% else %}
+<a href="{% url 'login' %}"><button>Login</button></a>
+<a href="{% url 'signup' %}"><button>Signup</button> </a>
+{% endif %}
+<h1>All Blog</h1>
+{% for i in blogs %}
+<li><a href="{% url 'detail' i.id %}">{{ i.title }}</a> -- {{ i.author.first_name }}</li><br>
+{% endfor %}
+</body>
+</html>
